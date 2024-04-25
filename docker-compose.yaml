@@ -1,0 +1,13 @@
+services:
+    php:
+        build: docker/php
+        networks:
+            - primary
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        volumes:
+            -
+                type: bind
+                source: .
+                target: /var/www/html
+            - 'var_dir:/var/www/html/var'
