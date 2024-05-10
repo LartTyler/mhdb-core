@@ -1,0 +1,22 @@
+weapons:
+    great-sword: Grande épée
+    sword-shield: Épée & bouclier
+    dual-blades: Lames doubles
+    long-sword: Épée longue
+    hammer: Marteau
+    hunting-horn: Corne de chasse
+    lance: Lance
+    gunlance: Lancecanon
+    switch-axe: Morpho-hache
+    charge-blade: Volto-hache
+    insect-glaive: Insectoglaive
+    bow: Arc
+    heavy-bowgun: Fusarbalète lourd
+    light-bowgun: Fusarbalète léger
+
+elements:
+    fire: Feu
+    water: Eau
+    thunder: Foudre
+    ice: Glace
+    dragon: Dragon

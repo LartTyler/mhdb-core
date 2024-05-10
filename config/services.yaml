@@ -1,0 +1,18 @@
+imports:
+    -
+        resource: './services'
+        type: 'directory'
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    App\Controller\:
+        resource: '../src/Controller'
+
+    App\Command\:
+        resource: '../src/Command'
+
+    App\Api\Transformers\:
+        resource: '../src/Api/Transformers'

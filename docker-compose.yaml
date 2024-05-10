@@ -11,3 +11,39 @@ services:
                 source: .
                 target: /var/www/html
             - 'var_dir:/var/www/html/var'
+        environment:
+            XDEBUG_MODE: 'off'
+
+    db:
+        image: mariadb:11
+        environment:
+            MARIADB_DATABASE: mhdb_core
+            MARIADB_USER: mhdb_core
+            MARIADB_PASSWORD_FILE: /run/secrets/db_password
+            MARIADB_RANDOM_ROOT_PASSWORD: '1'
+            MARIADB_INITDB_SKIP_TZINFO: '1'
+        networks:
+            - primary
+        secrets:
+            - db_password
+
+    web:
+        build: docker/web
+        depends_on:
+            - php
+        networks:
+            - primary
+        volumes_from:
+            - 'php:ro'
+        ports:
+            - '8000:80'
+
+volumes:
+    var_dir:
+
+networks:
+    primary:
+
+secrets:
+    db_password:
+        file: ./docker/secrets/db_password.txt

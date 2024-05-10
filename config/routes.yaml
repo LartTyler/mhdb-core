@@ -1,0 +1,17 @@
+controllers:
+    type: attribute
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    prefix:
+        en: ''
+        fr: '/fr'
+        de: '/de'
+        zh: '/zh'
+        zh-Hant: '/zh-hant'
+    defaults:
+        _format: json
+        _locale: en
+
+auth.login:
+    path: /auth

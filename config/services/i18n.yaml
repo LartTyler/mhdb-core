@@ -1,0 +1,19 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    gedmo.mapping.driver.attribute:
+        class: Gedmo\Mapping\Driver\AttributeReader
+
+    App\I18n\TranslatableListener:
+        tags:
+            - { name: doctrine.event_listener, event: 'postLoad' }
+            - { name: doctrine.event_listener, event: 'postPersist' }
+            - { name: doctrine.event_listener, event: 'preFlush' }
+            - { name: doctrine.event_listener, event: 'onFlush' }
+            - { name: doctrine.event_listener, event: 'loadClassMetadata' }
+        calls:
+            - [ setAnnotationReader, [ "@gedmo.mapping.driver.attribute" ] ]
+            - [ setDefaultLocale, [ "%kernel.default_locale%" ] ]
+            - [ setTranslationFallback, [ false ] ]
