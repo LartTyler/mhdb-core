@@ -1,7 +1,6 @@
 <?php
 	namespace App\Entity;
 
-	use App\I18n\TranslatableEntityInterface;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\Common\Collections\ArrayCollection;
 	use Doctrine\Common\Collections\Collection;
@@ -12,7 +11,7 @@
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'locations')]
-	class Location implements EntityInterface, TranslatableEntityInterface {
+	class Location implements EntityInterface {
 		use EntityTrait;
 
 		#[ORM\Column(nullable: true)]
@@ -27,9 +26,6 @@
 		 */
 		#[ORM\OneToMany(mappedBy: 'location', targetEntity: Camp::class, cascade: ['all'], orphanRemoval: true)]
 		private Collection&Selectable $camps;
-
-		#[Gedmo\Locale]
-		private ?string $locale = null;
 
 		public function __construct(string $name, int $zoneCount) {
 			$this->name = $name;
@@ -66,10 +62,5 @@
 		public function getCamp(int $zone): ?Camp {
 			$criteria = Criteria::create()->where(Criteria::expr()->eq('zone', $zone));
 			return $this->getCamps()->matching($criteria)->first() ?: null;
-		}
-
-		public function setTranslatableLocale(string $locale): static {
-			$this->locale = $locale;
-			return $this;
 		}
 	}
