@@ -11,6 +11,7 @@ services:
                 - '@serializer.normalizer.datetime'
                 - '@serializer.normalizer.backed_enum'
                 - '@serializer.normalizer.problem'
+                - '@DaybreakStudios\Rest\Serializer\EntityDenormalizer'
                 - '@DaybreakStudios\Rest\Serializer\ObjectNormalizer'
             -
                 - '@serializer.encoder.json'
@@ -21,3 +22,5 @@ services:
     DaybreakStudios\Rest\Serializer\ObjectNormalizer:
         bind:
             $objectNormalizer: '@serializer.normalizer.object'
+
+    DaybreakStudios\Rest\Serializer\EntityDenormalizer: ~

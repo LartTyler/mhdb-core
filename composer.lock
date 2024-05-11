@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "31fe8aedd7297268a9326d53ae7bab7a",
+    "content-hash": "d161b8346e0ab6f4b10b5b3a120e2249",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -144,16 +144,16 @@
         },
         {
             "name": "dbstudios/php-rest",
-            "version": "0.3.2",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LartTyler/php-rest.git",
-                "reference": "361dba60526cc4bd5ca313073bc44d0239a3dcd8"
+                "reference": "1c71c689fbcb76631205af712fa295b4258c0c73"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LartTyler/php-rest/zipball/361dba60526cc4bd5ca313073bc44d0239a3dcd8",
-                "reference": "361dba60526cc4bd5ca313073bc44d0239a3dcd8",
+                "url": "https://api.github.com/repos/LartTyler/php-rest/zipball/1c71c689fbcb76631205af712fa295b4258c0c73",
+                "reference": "1c71c689fbcb76631205af712fa295b4258c0c73",
                 "shasum": ""
             },
             "require": {
@@ -170,6 +170,7 @@
                 "symfony/serializer": "^6.3|^7.0",
                 "symfony/validator": "^6.3|^7.0"
             },
+            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
@@ -188,9 +189,9 @@
             ],
             "support": {
                 "issues": "https://github.com/LartTyler/php-rest/issues",
-                "source": "https://github.com/LartTyler/php-rest/tree/0.3.2"
+                "source": "https://github.com/LartTyler/php-rest/tree/main"
             },
-            "time": "2024-04-26T17:20:15+00:00"
+            "time": "2024-05-11T19:19:50+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -6093,7 +6094,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dbstudios/doctrine-query-document": 20
+        "dbstudios/php-rest": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
