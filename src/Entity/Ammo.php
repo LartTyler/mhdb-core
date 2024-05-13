@@ -9,7 +9,7 @@
 	#[ORM\Entity]
 	#[ORM\Table(name: 'weapon_ammo')]
 	#[ORM\HasLifecycleCallbacks]
-	abstract class Ammo implements EntityInterface {
+	class Ammo implements EntityInterface {
 		use EntityTrait;
 
 		#[ORM\Column(enumType: AmmoKind::class)]
@@ -23,7 +23,7 @@
 
 		private int $levels;
 
-		protected function __construct(AmmoKind $kind) {
+		public function __construct(AmmoKind $kind) {
 			$this->kind = $kind;
 			$this->levels = $kind->getLevels();
 			$this->capacities = array_fill(0, $this->levels, 0);

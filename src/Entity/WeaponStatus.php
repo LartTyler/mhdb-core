@@ -17,15 +17,6 @@
 			$this->status = $status;
 		}
 
-		public function getKind(): WeaponSpecialKind {
-			return $this->kind;
-		}
-
-		public function setKind(WeaponSpecialKind $kind): static {
-			$this->kind = $kind;
-			return $this;
-		}
-
 		public function getStatus(): Status {
 			return $this->status;
 		}
