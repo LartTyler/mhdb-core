@@ -21,7 +21,7 @@
 		/**
 		 * @var Selectable<SkillRank>&Collection<SkillRank>
 		 */
-		#[ORM\OneToMany(targetEntity: SkillRank::class, mappedBy: 'skill', cascade: ['all'], orphanRemoval: true)]
+		#[ORM\OneToMany(mappedBy: 'skill', targetEntity: SkillRank::class, cascade: ['all'], orphanRemoval: true, indexBy: 'level')]
 		private Collection&Selectable $ranks;
 
 		#[Translatable]

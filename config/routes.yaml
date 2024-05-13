@@ -3,6 +3,8 @@ controllers:
     resource:
         path: ../src/Controller/
         namespace: App\Controller
+
+    # If you change this, make sure you also change the same list in /config/routes/crud-routes.php
     prefix:
         en: ''
         fr: '/fr'
@@ -15,3 +17,7 @@ controllers:
 
 auth.login:
     path: /auth
+
+_extra_routes:
+    resource: './routes'
+    type: 'directory'

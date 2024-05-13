@@ -1,12 +1,25 @@
 <?php
 	namespace App\Entity;
 
+	use App\Api\AsCrudEntity;
+	use App\Api\Models\HornSongModel;
+	use App\Api\Transformers\HornSongTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\ORM\Mapping as ORM;
 	use Gedmo\Mapping\Annotation\Translatable;
 
 	#[ORM\Entity(readOnly: true)]
 	#[ORM\Table(name: 'horn_songs')]
+	#[AsCrudEntity(
+		basePath: '/weapons/hunting-horn/melodies/songs',
+		transformer: HornSongTransformer::class,
+		dtoClass: HornSongModel::class,
+		strict: [
+			'melody' => [
+				'songs',
+			],
+		]
+	)]
 	class HornSong implements EntityInterface {
 		use EntityTrait;
 
@@ -43,6 +56,12 @@
 			$this->effects = $effects;
 		}
 
+		// Where'd you get that melody?
+		// I don't know, it came to me. As if I'd known it all along.
+		public function getMelody(): HornMelody {
+			return $this->melody;
+		}
+
 		/**
 		 * @return int[]
 		 */
@@ -70,6 +89,15 @@
 
 		public function setEffects(?string $effects): static {
 			$this->effects = $effects;
+			return $this;
+		}
+
+		public function isPersonal(): bool {
+			return $this->personal;
+		}
+
+		public function setPersonal(bool $personal): static {
+			$this->personal = $personal;
 			return $this;
 		}
 	}

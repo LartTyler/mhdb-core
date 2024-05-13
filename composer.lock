@@ -148,12 +148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LartTyler/php-rest.git",
-                "reference": "1c71c689fbcb76631205af712fa295b4258c0c73"
+                "reference": "23e3d850019905ba90412b5e4437f7a682a54a9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LartTyler/php-rest/zipball/1c71c689fbcb76631205af712fa295b4258c0c73",
-                "reference": "1c71c689fbcb76631205af712fa295b4258c0c73",
+                "url": "https://api.github.com/repos/LartTyler/php-rest/zipball/23e3d850019905ba90412b5e4437f7a682a54a9b",
+                "reference": "23e3d850019905ba90412b5e4437f7a682a54a9b",
                 "shasum": ""
             },
             "require": {
@@ -191,7 +191,7 @@
                 "issues": "https://github.com/LartTyler/php-rest/issues",
                 "source": "https://github.com/LartTyler/php-rest/tree/main"
             },
-            "time": "2024-05-11T19:19:50+00:00"
+            "time": "2024-05-13T21:07:38+00:00"
         },
         {
             "name": "doctrine/cache",
