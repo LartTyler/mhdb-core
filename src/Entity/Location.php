@@ -1,6 +1,9 @@
 <?php
 	namespace App\Entity;
 
+	use App\Api\AsCrudEntity;
+	use App\Api\Models\LocationModel;
+	use App\Api\Transformers\LocationTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\Common\Collections\ArrayCollection;
 	use Doctrine\Common\Collections\Collection;
@@ -11,6 +14,11 @@
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'locations')]
+	#[AsCrudEntity(
+		basePath: '/locations',
+		transformer: LocationTransformer::class,
+		dtoClass: LocationModel::class,
+	)]
 	class Location implements EntityInterface {
 		use EntityTrait;
 

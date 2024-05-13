@@ -1,6 +1,9 @@
 <?php
 	namespace App\Entity;
 
+	use App\Api\AsCrudEntity;
+	use App\Api\Models\SkillRankModel;
+	use App\Api\Transformers\SkillRankTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\DBAL\Types\Types;
 	use Doctrine\ORM\Mapping as ORM;
@@ -8,6 +11,16 @@
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'skill_ranks')]
+	#[AsCrudEntity(
+		basePath: '/skills/ranks',
+		transformer: SkillRankTransformer::class,
+		dtoClass: SkillRankModel::class,
+		strict: [
+			'skill' => [
+				'ranks',
+			],
+		]
+	)]
 	class SkillRank implements EntityInterface {
 		use EntityTrait;
 

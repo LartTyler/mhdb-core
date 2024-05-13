@@ -1,6 +1,9 @@
 <?php
 	namespace App\Entity;
 
+	use App\Api\AsCrudEntity;
+	use App\Api\Models\SkillModel;
+	use App\Api\Transformers\SkillTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\Common\Collections\ArrayCollection;
 	use Doctrine\Common\Collections\Collection;
@@ -11,6 +14,11 @@
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'skills')]
+	#[AsCrudEntity(
+		basePath: '/skills',
+		transformer: SkillTransformer::class,
+		dtoClass: SkillModel::class,
+	)]
 	class Skill implements EntityInterface {
 		use EntityTrait;
 

@@ -1,6 +1,7 @@
 <?php
 	namespace App\Entity;
 
+	use App\Api\AsCrudEntity;
 	use App\Entity\Weapons\Bow;
 	use App\Entity\Weapons\ChargeBlade;
 	use App\Entity\Weapons\DualBlades;
@@ -46,6 +47,9 @@
 		WeaponKind::HeavyBowgun->value => HeavyBowgun::class,
 		WeaponKind::LightBowgun->value => LightBowgun::class,
 	])]
+	#[AsCrudEntity(
+		basePath: '/weapons',
+	)]
 	abstract class Weapon implements EntityInterface {
 		use EntityTrait;
 
@@ -57,7 +61,7 @@
 		/**
 		 * @var Selectable<WeaponSpecial>&Collection<WeaponSpecial>
 		 */
-		#[ORM\OneToMany(targetEntity: WeaponSpecial::class, mappedBy: 'weapon', cascade: ['all'], orphanRemoval: true)]
+		#[ORM\OneToMany(mappedBy: 'weapon', targetEntity: WeaponSpecial::class, cascade: ['all'], orphanRemoval: true)]
 		protected Collection&Selectable $specials;
 
 		#[Translatable]
@@ -70,7 +74,7 @@
 		#[ORM\Column(enumType: DamageKind::class)]
 		protected DamageKind $damageKind;
 
-		#[ORM\OneToMany(targetEntity: Sharpness::class, mappedBy: 'weapon', cascade: ['all'], orphanRemoval: true)]
+		#[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Sharpness::class, cascade: ['all'], orphanRemoval: true)]
 		protected Collection&Selectable $sharpness;
 
 		/**

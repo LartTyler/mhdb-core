@@ -1,12 +1,25 @@
 <?php
 	namespace App\Entity;
 
+	use App\Api\AsCrudEntity;
+	use App\Api\Models\CampModel;
+	use App\Api\Transformers\CampTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\ORM\Mapping as ORM;
 	use Gedmo\Mapping\Annotation\Translatable;
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'camps')]
+	#[AsCrudEntity(
+		basePath: '/locations/camps',
+		transformer: CampTransformer::class,
+		dtoClass: CampModel::class,
+		strict: [
+			'location' => [
+				'camps',
+			],
+		]
+	)]
 	class Camp implements EntityInterface {
 		use EntityTrait;
 
