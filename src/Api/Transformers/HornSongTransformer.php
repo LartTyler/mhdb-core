@@ -3,9 +3,9 @@
 
 	use App\Api\Models\HornSongModel;
 	use App\Entity\HornSong;
-	use DaybreakStudios\Rest\Transformer\AbstractTransformer;
-	use DaybreakStudios\Rest\Transformer\Traits\CloneNotSupportedTrait;
-	use DaybreakStudios\Rest\Transformer\Traits\StubDeleteTrait;
+	use DaybreakStudios\RestBundle\Transformer\AbstractTransformer;
+	use DaybreakStudios\RestBundle\Transformer\Traits\CloneNotSupportedTrait;
+	use DaybreakStudios\RestBundle\Transformer\Traits\StubDeleteTrait;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	class HornSongTransformer extends AbstractTransformer {

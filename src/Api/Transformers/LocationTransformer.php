@@ -3,8 +3,8 @@
 
 	use App\Api\Models\LocationModel;
 	use App\Entity\Location;
-	use DaybreakStudios\Rest\Transformer\AbstractTransformer;
-	use DaybreakStudios\Rest\Transformer\Traits\CloneNotSupportedTrait;
+	use DaybreakStudios\RestBundle\Transformer\AbstractTransformer;
+	use DaybreakStudios\RestBundle\Transformer\Traits\CloneNotSupportedTrait;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	class LocationTransformer extends AbstractTransformer {

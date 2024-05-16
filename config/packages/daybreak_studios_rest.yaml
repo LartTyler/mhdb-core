@@ -1,0 +1,3 @@
+daybreak_studios_rest:
+    serializer: '@app.serializer'
+    validator: '@validator'

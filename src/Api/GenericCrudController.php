@@ -2,9 +2,9 @@
 	namespace App\Api;
 
 	use App\Security\FirewallRole;
-	use DaybreakStudios\Rest\Controller\AbstractApiController;
-	use DaybreakStudios\Rest\Serializer\ObjectNormalizerContextBuilder;
-	use DaybreakStudios\Rest\Transformer\TransformerInterface;
+	use DaybreakStudios\RestBundle\Controller\AbstractApiController;
+	use DaybreakStudios\RestBundle\Serializer\ObjectNormalizerContextBuilder;
+	use DaybreakStudios\RestBundle\Transformer\TransformerInterface;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Symfony\Component\HttpFoundation\Response;
 	use Symfony\Component\Serializer\Context\ContextBuilderInterface;

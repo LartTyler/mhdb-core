@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d161b8346e0ab6f4b10b5b3a120e2249",
+    "content-hash": "3be7ed2fe73608384b6f6be971edf1f8",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -144,16 +144,16 @@
         },
         {
             "name": "dbstudios/php-rest",
-            "version": "dev-main",
+            "version": "dev-feature/bundle-config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LartTyler/php-rest.git",
-                "reference": "23e3d850019905ba90412b5e4437f7a682a54a9b"
+                "reference": "cbf7146603ccc9ef5553af3e138586d6b0d4e737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LartTyler/php-rest/zipball/23e3d850019905ba90412b5e4437f7a682a54a9b",
-                "reference": "23e3d850019905ba90412b5e4437f7a682a54a9b",
+                "url": "https://api.github.com/repos/LartTyler/php-rest/zipball/cbf7146603ccc9ef5553af3e138586d6b0d4e737",
+                "reference": "cbf7146603ccc9ef5553af3e138586d6b0d4e737",
                 "shasum": ""
             },
             "require": {
@@ -170,11 +170,10 @@
                 "symfony/serializer": "^6.3|^7.0",
                 "symfony/validator": "^6.3|^7.0"
             },
-            "default-branch": true,
             "type": "symfony-bundle",
             "autoload": {
                 "psr-4": {
-                    "DaybreakStudios\\Rest\\": "./src"
+                    "DaybreakStudios\\RestBundle\\": "./src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -187,11 +186,12 @@
                     "email": "tyler@lartonoix.com"
                 }
             ],
+            "description": "Provides common functionality for a basic Symfony REST application",
             "support": {
                 "issues": "https://github.com/LartTyler/php-rest/issues",
-                "source": "https://github.com/LartTyler/php-rest/tree/main"
+                "source": "https://github.com/LartTyler/php-rest/tree/feature/bundle-config"
             },
-            "time": "2024-05-13T21:07:38+00:00"
+            "time": "2024-05-14T23:23:50+00:00"
         },
         {
             "name": "doctrine/cache",
