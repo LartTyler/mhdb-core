@@ -21,7 +21,7 @@ COPY ./fpm_pool.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./xdebug.ini /usr/local/etc/php/conf.d
 
 RUN mkdir -p /var/www/html/var && \
-    chown -R www-data: /var/www/html/var && \
+    chown -R 1000:1000 /var/www/html/var && \
     chmod -R ug+rwX /var/www/html/var
 
 RUN echo "alias composer='XDEBUG_MODE=off \\\composer'" >> "$HOME/.bashrc"
