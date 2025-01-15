@@ -76,8 +76,8 @@
             "@composer dump-env prod",
             "@db:migrate -n"
         ],
-        "db:reset": [
-            "@php bin/console doctrine:database:drop",
+        "db:force-reset-database": [
+            "@php bin/console doctrine:database:drop --force",
             "@php bin/console doctrine:database:create"
         ],
         "db:diff": "@php bin/console --ansi doctrine:migrations:diff",
@@ -86,7 +86,8 @@
             "@db:reset",
             "rm -rf ./migrations/Version*",
             "@db:diff"
-        ]
+        ],
+        "db:fixtures": "@php bin/console doctrine:fixtures:load"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -96,5 +97,8 @@
             "allow-contrib": false,
             "require": "7.0.*"
         }
+    },
+    "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.6"
     }
 }

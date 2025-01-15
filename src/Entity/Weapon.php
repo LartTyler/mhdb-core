@@ -53,55 +53,68 @@
 		basePath: '/weapons',
 		transformer: WeaponTransformer::class,
 		dtoClass: WeaponModel::class,
+		strict: [
+			'crafting' => [
+				'branches' => [
+					'*',
+					'-id',
+					'-name',
+				],
+			],
+		]
 	)]
 	abstract class Weapon implements EntityInterface {
 		use EntityTrait;
 
-		protected WeaponKind $kind;
+		private WeaponKind $kind;
 
 		#[ORM\Embedded(class: DamageValues::class, columnPrefix: 'attack_')]
-		protected DamageValues $damage;
+		private DamageValues $damage;
 
 		/**
 		 * @var Selectable<WeaponSpecial>&Collection<WeaponSpecial>
 		 */
 		#[ORM\OneToMany(mappedBy: 'weapon', targetEntity: WeaponSpecial::class, cascade: ['all'], orphanRemoval: true)]
-		protected Collection&Selectable $specials;
+		private Collection&Selectable $specials;
 
 		#[Translatable]
 		#[ORM\Column(nullable: true)]
-		protected ?string $name;
+		private ?string $name;
 
 		#[ORM\Column]
-		protected int $rarity;
+		private int $rarity;
 
 		#[ORM\Column(enumType: DamageKind::class)]
-		protected DamageKind $damageKind;
+		private DamageKind $damageKind;
 
 		#[ORM\OneToMany(mappedBy: 'weapon', targetEntity: Sharpness::class, cascade: ['all'], orphanRemoval: true)]
-		protected Collection&Selectable $sharpness;
+		private Collection&Selectable $sharpness;
 
 		/**
 		 * @var Selectable<Skill>&Collection<Skill>
 		 */
 		#[ORM\ManyToMany(targetEntity: Skill::class)]
 		#[ORM\JoinTable(name: 'weapon_skills')]
-		protected Collection&Selectable $skills;
+		private Collection&Selectable $skills;
 
 		#[ORM\Column(options: ['unsigned' => true])]
-		protected int $defenseBonus = 0;
+		private int $defenseBonus = 0;
 
 		#[ORM\Column(nullable: true)]
-		protected ?Elderseal $elderseal = null;
+		private ?Elderseal $elderseal = null;
 
 		#[ORM\Column(options: ['unsigned' => true])]
-		protected int $affinity = 0;
+		private int $affinity = 0;
 
 		/**
 		 * @var int[]
 		 */
 		#[ORM\Column(type: Types::JSON)]
-		protected array $slots = [];
+		private array $slots = [];
+
+		#[ORM\OneToOne(cascade: ['all'], orphanRemoval: true)]
+		#[ORM\JoinColumn(onDelete: 'CASCADE')]
+		private ?WeaponCrafting $crafting = null;
 
 		public function __construct(string $name, int $rarity, DamageKind $damageKind) {
 			$this->name = $name;
@@ -111,6 +124,15 @@
 			$this->damage = new DamageValues();
 			$this->specials = new ArrayCollection();
 			$this->skills = new ArrayCollection();
+		}
+
+		public function getCrafting(): ?WeaponCrafting {
+			return $this->crafting;
+		}
+
+		public function setCrafting(?WeaponCrafting $crafting): static {
+			$this->crafting = $crafting;
+			return $this;
 		}
 
 		public function getRarity(): int {

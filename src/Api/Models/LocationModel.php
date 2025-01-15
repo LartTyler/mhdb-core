@@ -1,7 +1,7 @@
 <?php
 	namespace App\Api\Models;
 
-	use DaybreakStudios\Rest\Payload\Intent;
+	use DaybreakStudios\RestBundle\Payload\Intent;
 	use Symfony\Component\Validator\Constraints as Assert;
 
 	class LocationModel {

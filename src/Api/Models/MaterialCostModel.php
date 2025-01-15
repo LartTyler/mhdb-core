@@ -1,18 +1,15 @@
 <?php
 	namespace App\Api\Models;
 
-	use App\Entity\Skill;
+	use App\Entity\Item;
 	use DaybreakStudios\RestBundle\Payload\Intent;
 	use Symfony\Component\Validator\Constraints as Assert;
 
-	class SkillRankModel {
+	class MaterialCostModel {
 		#[Assert\NotNull(groups: [Intent::CREATE])]
 		#[Assert\IsNull(groups: [Intent::UPDATE])]
-		public Skill $skill;
+		public Item $item;
 
 		#[Assert\NotNull(groups: [Intent::CREATE])]
-		public int $level;
-
-		#[Assert\NotBlank(allowNull: true)]
-		public string $description;
+		public int $quantity;
 	}

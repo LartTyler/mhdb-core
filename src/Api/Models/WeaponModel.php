@@ -12,8 +12,8 @@
 	use App\Game\DamageKind;
 	use App\Game\Elderseal;
 	use App\Game\WeaponKind;
-	use DaybreakStudios\Rest\Payload\Intent;
-	use DaybreakStudios\Rest\Payload\PayloadTrait;
+	use DaybreakStudios\RestBundle\Payload\Intent;
+	use DaybreakStudios\RestBundle\Payload\PayloadTrait;
 	use Symfony\Component\Serializer\Attribute\DiscriminatorMap;
 	use Symfony\Component\Validator\Constraints as Assert;
 
@@ -70,13 +70,13 @@
 		/**
 		 * @var WeaponSharpnessModel[]
 		 */
-		#[Assert\Valid(traverse: true)]
+		#[Assert\Valid]
 		public array $sharpness;
 
 		/**
 		 * @var WeaponSpecialModel[]
 		 */
-		#[Assert\Valid(traverse: true)]
+		#[Assert\Valid]
 		public array $specials;
 
 		public int $defenseBonus;

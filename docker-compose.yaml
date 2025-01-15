@@ -15,7 +15,7 @@ services:
             XDEBUG_MODE: 'off'
 
     db:
-        image: mariadb:11
+        image: mariadb:11.6.2
         environment:
             MARIADB_DATABASE: mhdb_core
             MARIADB_USER: mhdb_core

@@ -3,7 +3,7 @@
 
 	use App\Api\Models\WeaponModel;
 	use App\Game\BowCoating;
-	use DaybreakStudios\Rest\Payload\Intent;
+	use DaybreakStudios\RestBundle\Payload\Intent;
 	use Symfony\Component\Validator\Constraints as Assert;
 
 	class BowModel extends WeaponModel {

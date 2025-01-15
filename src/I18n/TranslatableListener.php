@@ -7,7 +7,7 @@
 	class TranslatableListener extends Base {
 		public function __construct(RequestStack $requestStack) {
 			parent::__construct();
-			$this->locale = $requestStack->getCurrentRequest()->getLocale();
+			$this->locale = $requestStack->getCurrentRequest()?->getLocale() ?? 'en';
 		}
 
 		protected function getNamespace(): string {

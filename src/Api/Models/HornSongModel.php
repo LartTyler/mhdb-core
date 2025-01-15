@@ -2,7 +2,7 @@
 	namespace App\Api\Models;
 
 	use App\Entity\HornMelody;
-	use DaybreakStudios\Rest\Payload\Intent;
+	use DaybreakStudios\RestBundle\Payload\Intent;
 	use Symfony\Component\Validator\Constraints as Assert;
 
 	class HornSongModel {

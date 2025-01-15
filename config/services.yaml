@@ -16,3 +16,6 @@ services:
 
     App\Api\Transformers\:
         resource: '../src/Api/Transformers'
+
+    App\DataFixtures\:
+        resource: '../src/DataFixtures'
