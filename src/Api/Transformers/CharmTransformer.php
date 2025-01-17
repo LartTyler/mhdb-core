@@ -23,4 +23,8 @@
 			if ($data->exists('name'))
 				$entity->setName($data->name);
 		}
+
+		protected function getShouldUpdateAfterCreate(): bool {
+			return false;
+		}
 	}

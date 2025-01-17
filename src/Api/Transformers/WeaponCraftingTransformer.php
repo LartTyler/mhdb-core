@@ -9,23 +9,21 @@
 	use DaybreakStudios\RestBundle\Transformer\Traits\StubDeleteTrait;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
+	/**
+	 * @extends AbstractTransformer<WeaponCraftingModel, WeaponCrafting>
+	 */
 	class WeaponCraftingTransformer extends AbstractTransformer {
 		use StubDeleteTrait;
 		use CloneNotSupportedTrait;
 
 		protected function doCreate(object $data): EntityInterface {
-			assert($data instanceof WeaponCraftingModel);
-
-			$crafting = new WeaponCrafting($data->craftable, $data->previous ?? null);
+			$crafting = new WeaponCrafting($data->weapon, $data->craftable, $data->previous ?? null);
 			$data->weapon->setCrafting($crafting);
 
 			return $crafting;
 		}
 
 		protected function doUpdate(object $data, EntityInterface $entity): void {
-			assert($data instanceof WeaponCraftingModel);
-			assert($entity instanceof WeaponCrafting);
-
 			if ($data->exists('previous'))
 				$entity->setPrevious($data->previous);
 

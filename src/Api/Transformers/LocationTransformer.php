@@ -5,20 +5,21 @@
 	use App\Entity\Location;
 	use DaybreakStudios\RestBundle\Transformer\AbstractTransformer;
 	use DaybreakStudios\RestBundle\Transformer\Traits\CloneNotSupportedTrait;
+	use DaybreakStudios\RestBundle\Transformer\Traits\StubDeleteTrait;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
+	/**
+	 * @extends AbstractTransformer<LocationModel, Location>
+	 */
 	class LocationTransformer extends AbstractTransformer {
+		use StubDeleteTrait;
 		use CloneNotSupportedTrait;
 
 		protected function doCreate(object $data): EntityInterface {
-			assert($data instanceof LocationModel);
 			return new Location($data->name, $data->zoneCount);
 		}
 
 		protected function doUpdate(object $data, EntityInterface $entity): void {
-			assert($data instanceof LocationModel);
-			assert($entity instanceof Location);
-
 			if (isset($data->name))
 				$entity->setName($data->name);
 
@@ -26,7 +27,7 @@
 				$entity->setZoneCount($data->zoneCount);
 		}
 
-		protected function doDelete(EntityInterface $entity): void {
-			// noop
+		protected function getShouldUpdateAfterCreate(): bool {
+			return false;
 		}
 	}

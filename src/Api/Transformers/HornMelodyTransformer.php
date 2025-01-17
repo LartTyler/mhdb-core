@@ -8,20 +8,23 @@
 	use DaybreakStudios\RestBundle\Transformer\Traits\StubDeleteTrait;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
+	/**
+	 * @extends AbstractTransformer<HornMelodyModel, HornMelody>
+	 */
 	class HornMelodyTransformer extends AbstractTransformer {
 		use StubDeleteTrait;
 		use CloneNotSupportedTrait;
 
 		protected function doCreate(object $data): EntityInterface {
-			assert($data instanceof HornMelodyModel);
 			return new HornMelody($data->notes);
 		}
 
 		protected function doUpdate(object $data, EntityInterface $entity): void {
-			assert($data instanceof HornMelodyModel);
-			assert($entity instanceof HornMelody);
-
 			if (isset($data->notes))
 				$entity->setNotes($data->notes);
+		}
+
+		protected function getShouldUpdateAfterCreate(): bool {
+			return false;
 		}
 	}

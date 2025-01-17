@@ -8,19 +8,18 @@
 	use DaybreakStudios\RestBundle\Transformer\Traits\StubDeleteTrait;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
+	/**
+	 * @extends AbstractTransformer<CampModel, Camp>
+	 */
 	class CampTransformer extends AbstractTransformer {
 		use StubDeleteTrait;
 		use CloneNotSupportedTrait;
 
 		protected function doCreate(object $data): EntityInterface {
-			assert($data instanceof CampModel);
 			return new Camp($data->location, $data->name, $data->zone);
 		}
 
 		protected function doUpdate(object $data, EntityInterface $entity): void {
-			assert($data instanceof CampModel);
-			assert($entity instanceof Camp);
-
 			if (isset($data->name))
 				$entity->setName($data->name);
 
