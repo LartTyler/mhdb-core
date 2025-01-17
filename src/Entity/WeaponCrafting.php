@@ -17,6 +17,11 @@
 		transformer: WeaponCraftingTransformer::class,
 		dtoClass: WeaponCraftingModel::class,
 		strict: [
+			'weapon' => [
+				'*',
+				'-id',
+				'-name',
+			],
 			'previous' => [
 				'*',
 				'-id',
@@ -32,10 +37,15 @@
 	class WeaponCrafting implements EntityInterface {
 		use EntityTrait;
 
+		#[ORM\OneToOne(inversedBy: 'crafting', targetEntity: Weapon::class)]
+		#[ORM\JoinColumn(onDelete: 'CASCADE')]
+		private Weapon $weapon;
+
 		#[ORM\Column]
 		private bool $craftable;
 
 		#[ORM\ManyToOne]
+		#[ORM\JoinColumn(onDelete: 'SET NULL')]
 		private ?Weapon $previous;
 
 		/**
@@ -62,13 +72,18 @@
 		#[ORM\Column(options: ['unsigned' => true])]
 		private int $upgradeZennyCost = 0;
 
-		public function __construct(bool $craftable, ?Weapon $previous) {
+		public function __construct(Weapon $weapon, bool $craftable, ?Weapon $previous) {
+			$this->weapon = $weapon;
 			$this->craftable = $craftable;
 			$this->previous = $previous;
 
 			$this->branches = new ArrayCollection();
 			$this->craftingMaterials = new ArrayCollection();
 			$this->upgradeMaterials = new ArrayCollection();
+		}
+
+		public function getWeapon(): Weapon {
+			return $this->weapon;
 		}
 
 		public function isCraftable(): bool {

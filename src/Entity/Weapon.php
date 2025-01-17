@@ -112,8 +112,7 @@
 		#[ORM\Column(type: Types::JSON)]
 		private array $slots = [];
 
-		#[ORM\OneToOne(cascade: ['all'], orphanRemoval: true)]
-		#[ORM\JoinColumn(onDelete: 'CASCADE')]
+		#[ORM\OneToOne(mappedBy: 'weapon', targetEntity: WeaponCrafting::class, cascade: ['all'], orphanRemoval: true)]
 		private ?WeaponCrafting $crafting = null;
 
 		public function __construct(string $name, int $rarity, DamageKind $damageKind) {

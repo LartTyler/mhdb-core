@@ -24,7 +24,7 @@
 		use EntityTrait;
 
 		#[ORM\ManyToOne(targetEntity: Location::class, inversedBy: 'camps')]
-		#[ORM\JoinColumn(nullable: false)]
+		#[ORM\JoinColumn(onDelete: 'CASCADE')]
 		private Location $location;
 
 		#[Translatable]

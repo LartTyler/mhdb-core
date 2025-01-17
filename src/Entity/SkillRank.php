@@ -25,7 +25,7 @@
 		use EntityTrait;
 
 		#[ORM\ManyToOne(targetEntity: Skill::class, inversedBy: 'ranks')]
-		#[ORM\JoinColumn(nullable: false)]
+		#[ORM\JoinColumn(onDelete: 'CASCADE')]
 		private Skill $skill;
 
 		#[ORM\Column(options: ['unsigned' => true])]

@@ -14,10 +14,18 @@
 
 		public array $methods;
 
+		/**
+		 * @param string               $basePath
+		 * @param string[]|string|null $method
+		 * @param mixed                $firewallRole
+		 * @param class-string|null    $transformer
+		 * @param class-string|null    $dtoClass
+		 * @param array|null           $strict
+		 */
 		public function __construct(
 			public string $basePath,
 			array|string|null $method = null,
-			public $firewallRole = FirewallRole::USER,
+			public mixed $firewallRole = FirewallRole::USER,
 			public ?string $transformer = null,
 			public ?string $dtoClass = null,
 			public ?array $strict = null,

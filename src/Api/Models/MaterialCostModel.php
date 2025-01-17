@@ -7,7 +7,6 @@
 
 	class MaterialCostModel {
 		#[Assert\NotNull(groups: [Intent::CREATE])]
-		#[Assert\IsNull(groups: [Intent::UPDATE])]
 		public Item $item;
 
 		#[Assert\NotNull(groups: [Intent::CREATE])]

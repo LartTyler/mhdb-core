@@ -27,6 +27,7 @@
 		#[Assert\Valid]
 		public array $craftingMaterials;
 
+		#[Assert\Range(min: 0)]
 		public int $craftingZennyCost;
 
 		/**
@@ -35,5 +36,6 @@
 		#[Assert\Valid]
 		public array $upgradeMaterials;
 
+		#[Assert\Range(min: 0)]
 		public int $upgradeZennyCost;
 	}

@@ -17,7 +17,7 @@
 		use EntityTrait;
 
 		#[ORM\ManyToOne(targetEntity: Weapon::class, inversedBy: 'specials')]
-		#[ORM\JoinColumn(nullable: false)]
+		#[ORM\JoinColumn(onDelete: 'CASCADE')]
 		protected Weapon $weapon;
 
 		#[ORM\Embedded]
