@@ -90,10 +90,10 @@
 			switch ($method) {
 				case AsCrudEntity::METHOD_CREATE:
 				case AsCrudEntity::METHOD_UPDATE:
-					$msg = 'Set the "transformer" and "dtoClass" properties on AsCrudEntity to create ' . $this->entity;
-
-					assert($this->transformer !== null, $msg);
-					assert($this->dtoClass !== null, $msg);
+					assert(
+						$this->transformer !== null && $this->dtoClass !== null,
+						'Set the "transformer" and "dtoClass" properties on AsCrudEntity to create ' . $this->entity,
+					);
 
 					break;
 

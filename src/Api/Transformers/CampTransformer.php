@@ -27,4 +27,8 @@
 			if (isset($data->zone))
 				$entity->setZone($data->zone);
 		}
+
+		protected function getShouldUpdateAfterCreate(): bool {
+			return false;
+		}
 	}
