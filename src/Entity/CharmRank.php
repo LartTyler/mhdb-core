@@ -9,6 +9,7 @@
 	use Doctrine\Common\Collections\Collection;
 	use Doctrine\Common\Collections\Selectable;
 	use Doctrine\ORM\Mapping as ORM;
+	use Gedmo\Mapping\Annotation\Translatable;
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'charm_ranks')]
@@ -38,6 +39,7 @@
 		#[ORM\JoinColumn(onDelete: 'CASCADE')]
 		private Charm $charm;
 
+		#[Translatable]
 		#[ORM\Column(nullable: true)]
 		private ?string $name;
 

@@ -9,6 +9,7 @@
 	use Doctrine\Common\Collections\Collection;
 	use Doctrine\Common\Collections\Selectable;
 	use Doctrine\ORM\Mapping as ORM;
+	use Gedmo\Mapping\Annotation\Translatable;
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'decorations')]
@@ -29,6 +30,7 @@
 	class Decoration implements EntityInterface {
 		use EntityTrait;
 
+		#[Translatable]
 		#[ORM\Column(nullable: true)]
 		private ?string $name;
 
