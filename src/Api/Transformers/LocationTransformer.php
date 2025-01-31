@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	/**
-	 * @extends AbstractTransformer<LocationModel, Location>
+	 * @extends AbstractTransformer<Location, LocationModel>
 	 */
 	class LocationTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

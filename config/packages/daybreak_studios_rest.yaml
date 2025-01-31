@@ -1,3 +1,8 @@
 daybreak_studios_rest:
     serializer: '@app.serializer'
     validator: '@validator'
+    crud:
+        entities:
+            - '%kernel.project_dir%/src/Entity'
+
+        use_localized_routes: true

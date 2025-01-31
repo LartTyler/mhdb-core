@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\MonsterWeaknessModel;
 	use App\Api\Transformers\MonsterWeaknessTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
@@ -14,8 +14,8 @@
 	#[ORM\InheritanceType('SINGLE_TABLE')]
 	#[ORM\DiscriminatorColumn(name: 'kind')]
 	#[ORM\DiscriminatorMap([
-		static::KIND_ELEMENT => MonsterElementWeakness::class,
-		static::KIND_STATUS => MonsterStatusWeakness::class,
+		self::KIND_ELEMENT => MonsterElementWeakness::class,
+		self::KIND_STATUS => MonsterStatusWeakness::class,
 	])]
 	#[AsCrudEntity(
 		basePath: '/monsters/weaknesses',

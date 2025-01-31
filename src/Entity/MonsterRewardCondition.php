@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\MonsterRewardConditionModel;
 	use App\Api\Transformers\MonsterRewardConditionTransformer;
 	use App\Game\MonsterRewardConditionKind;

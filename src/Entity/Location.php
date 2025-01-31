@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\LocationModel;
 	use App\Api\Transformers\LocationTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;

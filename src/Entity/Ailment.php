@@ -1,9 +1,9 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
 	use App\Api\Models\AilmentModel;
 	use App\Api\Transformers\AilmentTransformer;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\DBAL\Types\Types;
 	use Doctrine\ORM\Mapping as ORM;

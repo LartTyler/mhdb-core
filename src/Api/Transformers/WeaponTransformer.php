@@ -41,13 +41,14 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\Common\Collections\Collection;
 
+	/**
+	 * @extends AbstractTransformer<Weapon, WeaponModel>
+	 */
 	class WeaponTransformer extends AbstractTransformer {
 		use StubDeleteTrait;
 		use CloneNotSupportedTrait;
 
 		protected function doCreate(object $data): EntityInterface {
-			assert($data instanceof WeaponModel);
-
 			return match (true) {
 				$data instanceof BowModel => new Bow($data->name, $data->rarity, $data->damageKind, $data->coatings),
 				$data instanceof ChargeBladeModel => new ChargeBlade(
@@ -104,9 +105,6 @@
 		}
 
 		protected function doUpdate(object $data, EntityInterface $entity): void {
-			assert($data instanceof WeaponModel);
-			assert($entity instanceof Weapon);
-
 			if (isset($data->name))
 				$entity->setName($data->name);
 

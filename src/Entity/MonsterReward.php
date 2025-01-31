@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\MonsterRewardModel;
 	use App\Api\Transformers\MonsterRewardTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;

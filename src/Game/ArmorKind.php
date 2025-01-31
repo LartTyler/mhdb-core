@@ -4,7 +4,7 @@
 	enum ArmorKind: string {
 		case Head = 'head';
 		case Chest = 'chest';
-		case Gloves = 'gloves';
+		case Arms = 'arms';
 		case Waist = 'waist';
 		case Legs = 'legs';
 	}

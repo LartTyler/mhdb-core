@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<MonsterRewardConditionModel, MonsterRewardCondition>
+	 * @extends AbstractTransformer<MonsterRewardCondition, MonsterRewardConditionModel>
 	 */
 	class MonsterRewardConditionTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

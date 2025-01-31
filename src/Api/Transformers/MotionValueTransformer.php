@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<MotionValueModel, MotionValue>
+	 * @extends AbstractTransformer<MotionValue, MotionValueModel>
 	 */
 	class MotionValueTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

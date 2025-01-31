@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	/**
-	 * @extends AbstractTransformer<CampModel, Camp>
+	 * @extends AbstractTransformer<Camp, CampModel>
 	 */
 	class CampTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\WeaponCraftingModel;
 	use App\Api\Transformers\WeaponCraftingTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;

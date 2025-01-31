@@ -13,7 +13,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<MonsterWeaknessModel, MonsterWeakness>
+	 * @extends AbstractTransformer<MonsterWeakness, MonsterWeaknessModel>
 	 */
 	class MonsterWeaknessTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

@@ -1,6 +1,7 @@
 <?php
 	namespace App\Entity;
 
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\DBAL\Types\Types;
 	use Doctrine\ORM\Mapping as ORM;
@@ -8,6 +9,9 @@
 
 	#[ORM\Entity]
 	#[ORM\Table(name: 'items')]
+	#[AsCrudEntity(
+		basePath: '/items',
+	)]
 	class Item implements EntityInterface {
 		use EntityTrait;
 

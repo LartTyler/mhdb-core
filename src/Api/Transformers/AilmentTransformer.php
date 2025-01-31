@@ -13,7 +13,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<AilmentModel, Ailment>
+	 * @extends AbstractTransformer<Ailment, AilmentModel>
 	 */
 	class AilmentTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

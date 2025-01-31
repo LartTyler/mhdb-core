@@ -1,11 +1,11 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
 	use App\Api\Models\ArmorModel;
 	use App\Api\Transformers\ArmorTransformer;
 	use App\Game\ArmorKind;
 	use App\Game\Rank;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 	use Doctrine\Common\Collections\ArrayCollection;
 	use Doctrine\Common\Collections\Collection;
@@ -85,6 +85,11 @@
 
 		public function getKind(): ArmorKind {
 			return $this->kind;
+		}
+
+		public function setKind(ArmorKind $kind): static {
+			$this->kind = $kind;
+			return $this;
 		}
 
 		public function getName(): ?string {

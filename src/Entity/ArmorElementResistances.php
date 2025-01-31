@@ -5,19 +5,19 @@
 
 	#[ORM\Embeddable]
 	class ArmorElementResistances {
-		#[ORM\Column(options: ['unsigned' => true])]
+		#[ORM\Column]
 		private int $fire = 0;
 
-		#[ORM\Column(options: ['unsigned' => true])]
+		#[ORM\Column]
 		private int $water = 0;
 
-		#[ORM\Column(options: ['unsigned' => true])]
+		#[ORM\Column]
 		private int $ice = 0;
 
-		#[ORM\Column(options: ['unsigned' => true])]
+		#[ORM\Column]
 		private int $thunder = 0;
 
-		#[ORM\Column(options: ['unsigned' => true])]
+		#[ORM\Column]
 		private int $dragon = 0;
 
 		public function getFire(): int {

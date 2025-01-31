@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\ArmorSetModel;
 	use App\Api\Transformers\ArmorSetTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;

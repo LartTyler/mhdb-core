@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\MonsterResistanceModel;
 	use App\Api\Transformers\MonsterResistanceTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
@@ -14,8 +14,8 @@
 	#[ORM\InheritanceType('SINGLE_TABLE')]
 	#[ORM\DiscriminatorColumn(name: 'kind')]
 	#[ORM\DiscriminatorMap([
-		static::KIND_ELEMENT => MonsterElementResistance::class,
-		static::KIND_STATUS => MonsterStatusResistance::class,
+		self::KIND_ELEMENT => MonsterElementResistance::class,
+		self::KIND_STATUS => MonsterStatusResistance::class,
 	])]
 	#[AsCrudEntity(
 		basePath: '/monsters/resistances',

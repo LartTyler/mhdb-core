@@ -19,3 +19,6 @@ services:
 
     App\DataFixtures\:
         resource: '../src/DataFixtures'
+
+    App\Import\Importers\:
+        resource: '../src/Import/Importers'

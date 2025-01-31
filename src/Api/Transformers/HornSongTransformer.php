@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	/**
-	 * @extends AbstractTransformer<HornSongModel, HornSong>
+	 * @extends AbstractTransformer<HornSong, HornSongModel>
 	 */
 	class HornSongTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

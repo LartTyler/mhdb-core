@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<CharmRankModel, CharmRank>
+	 * @extends AbstractTransformer<CharmRank, CharmRankModel>
 	 */
 	class CharmRankTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

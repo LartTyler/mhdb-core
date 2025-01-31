@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<ArmorSetModel, ArmorSet>
+	 * @extends AbstractTransformer<ArmorSet, ArmorSetModel>
 	 */
 	class ArmorSetTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

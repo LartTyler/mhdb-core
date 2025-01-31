@@ -10,7 +10,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	/**
-	 * @extends AbstractTransformer<WeaponCraftingModel, WeaponCrafting>
+	 * @extends AbstractTransformer<WeaponCrafting, WeaponCraftingModel>
 	 */
 	class WeaponCraftingTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

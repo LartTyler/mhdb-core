@@ -3,14 +3,12 @@ controllers:
     resource:
         path: ../src/Controller/
         namespace: App\Controller
+    defaults:
+        _format: json
 
-    # If you change this, make sure you also change the same list in /config/routes/crud-routes.php
-    prefix:
-        en: ''
-        fr: '/fr'
-        de: '/de'
-        zh: '/zh'
-        zh-Hant: '/zh-hant'
+dbstudios_rest.crud:
+    resource: dbstudios_rest.crud.route_loader
+    type: service
     defaults:
         _format: json
         _locale: en

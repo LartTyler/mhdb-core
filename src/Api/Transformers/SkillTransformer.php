@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
 
 	/**
-	 * @extends AbstractTransformer<SkillModel, Skill>
+	 * @extends AbstractTransformer<Skill, SkillModel>
 	 */
 	class SkillTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

@@ -9,7 +9,7 @@
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface as Entity;
 
 	/**
-	 * @extends AbstractTransformer<DecorationModel, Decoration>
+	 * @extends AbstractTransformer<Decoration, DecorationModel>
 	 */
 	class DecorationTransformer extends AbstractTransformer {
 		use StubDeleteTrait;

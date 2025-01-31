@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\SkillModel;
 	use App\Api\Transformers\SkillTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;

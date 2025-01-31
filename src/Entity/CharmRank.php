@@ -1,7 +1,7 @@
 <?php
 	namespace App\Entity;
 
-	use App\Api\AsCrudEntity;
+	use DaybreakStudios\RestBundle\Entity\AsCrudEntity;
 	use App\Api\Models\CharmRankModel;
 	use App\Api\Transformers\CharmRankTransformer;
 	use DaybreakStudios\Utility\DoctrineEntities\EntityInterface;
