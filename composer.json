@@ -83,7 +83,7 @@
         "db:diff": "@php bin/console --ansi doctrine:migrations:diff",
         "db:migrate": "@php bin/console --ansi doctrine:migrations:migrate",
         "db:squash-migrations": [
-            "@db:reset",
+            "@db:force-reset-database",
             "rm -rf ./migrations/Version*",
             "@db:diff"
         ],
