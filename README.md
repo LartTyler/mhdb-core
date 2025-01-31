@@ -95,5 +95,6 @@ $ git fetch upstream
 You can then merge any changes in this repository with the new repository.
 
 ```shell
+$ git fetch upstream
 $ git merge upstream/main
 ```
