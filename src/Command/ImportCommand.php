@@ -12,6 +12,7 @@
 	use Symfony\Component\Console\Input\InputInterface;
 	use Symfony\Component\Console\Input\InputOption;
 	use Symfony\Component\Console\Output\OutputInterface;
+	use Symfony\Component\Console\Style\SymfonyStyle;
 	use Symfony\Component\DependencyInjection\Attribute\AutowireIterator;
 
 	#[AsCommand(
@@ -40,20 +41,55 @@
 					InputOption::VALUE_REQUIRED,
 					'The number of objects to process before flushing changes to the database; set to zero to disable batching',
 					100,
+				)
+				->addOption(
+					'filter',
+					'f',
+					InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
+					'If provided, only the importers whose class name matches the given value(s) will be run',
 				);
 		}
 
 		protected function execute(InputInterface $input, OutputInterface $output): int {
+			$io = new SymfonyStyle($input, $output);
+
+			$filters = array_map(fn(string $item) => strtolower($item), $input->getOption('filter'));
+
 			$batch = new BatchManager($this->entityManager, (int)$input->getOption('batch-size'));
 			$context = new ImportContext($batch, $input->getArgument('data-root'));
 
+			$io->progressStart();
+
 			foreach ($this->importers as $importer) {
+				if (!$this->shouldImporterRun($importer::class, $filters))
+					continue;
+
 				if ($importer instanceof ImporterInterface)
 					$importer->import($context);
 				else
 					$importer($context);
+
+				$batch->dispatch();
+
+				$io->progressAdvance();
 			}
 
+			$io->progressFinish();
+
 			return static::SUCCESS;
+		}
+
+		protected function shouldImporterRun(string $class, array $filters): bool {
+			if (!$filters)
+				return true;
+
+			$className = strtolower(substr($class, strrpos($class, '\\') + 1));
+
+			foreach ($filters as $filter) {
+				if (str_contains($className, $filter))
+					return true;
+			}
+
+			return false;
 		}
 	}
