@@ -3,6 +3,10 @@ support any Monster Hunter game.
 
 More information to come soon.
 
+- [Installation](#installation)
+- [Data Sources (Imports)](#data-sources-imports)
+- [Supporting a New Game (Forking)](#supporting-a-new-game-forking)
+
 ## Installation
 This project ships with a `docker-compose.yaml` configuration that should be suitable for production environments. The
 database password can be set by placing a text file containing the desired password at
@@ -74,3 +78,22 @@ to ensure that any changes that didn't quite pass the batch threshold are saved.
 
 If you're working with a CSV data source, you can use the `CsvReader` class to simplify loading the CSV and parsing
 each row into an object.
+
+## Supporting a New Game (Forking)
+This project intentionally limits supported game features to those common across most Monster Hunter titles. In order
+to support a specific game, a new repository needs to be created. This should be done by cloning or forking this
+repository, then making changes in the new repository to fully support the target game.
+
+It is recommended to add this repository as a remote in the new repository, in order to periodically receive changes or
+improvements added here.
+
+```shell
+$ git remote add upstream https://github.com/LartTyler/mhdb-core
+$ git fetch upstream
+```
+
+You can then merge any changes in this repository with the new repository.
+
+```shell
+$ git merge upstream/main
+```
