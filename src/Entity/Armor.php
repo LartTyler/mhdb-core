@@ -21,7 +21,6 @@
 		dtoClass: ArmorModel::class,
 		strict: [
 			'skills' => [
-				'description',
 				'skill' => [
 					'ranks',
 					'description',
